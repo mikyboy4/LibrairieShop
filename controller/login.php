@@ -49,16 +49,20 @@
             $UserManager = new UserManager();
             $userData = $UserManager -> select($_POST['username'], $_POST['password']);
 
-            if(isset ($userData) && $userData != null){
+            if(isset ($userData)){
 
                 $User = new User($userData);
-
-                $_SESSION['id'] = $User ->getid();
-                $_SESSION['username'] = $User ->getusername();
-                $_SESSION['name'] = $User ->getname();
-                $_SESSION['surname'] = $User ->getsurname();
-                $_SESSION['email'] = $User ->getemail();
-                $_SESSION['right'] = $User ->getright();
+                
+                if(password_verify($_POST['password'], $User->getpassword())){
+                    $_SESSION['id'] = $User ->getid();
+                    $_SESSION['username'] = $User ->getusername();
+                    $_SESSION['name'] = $User ->getname();
+                    $_SESSION['surname'] = $User ->getsurname();
+                    $_SESSION['email'] = $User ->getemail();
+                    $_SESSION['right'] = $User ->getright();
+                }else{
+                    $error = 2;
+                }
 
                 header('Location: books.php');
             }else{

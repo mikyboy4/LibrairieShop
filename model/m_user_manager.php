@@ -35,12 +35,11 @@ class UserManager {
 	}
 
     //SELECT DB FUNCTION
-	public function select($username, $password) {
+	public function select($username) {
             try {
                 $output = array();
-		$q = $this -> _odbc -> prepare("SELECT * FROM user WHERE username = :username AND password = :password AND deleted = 0");
+		$q = $this -> _odbc -> prepare("SELECT * FROM user WHERE username = :username AND deleted = 0");
 		$q -> bindValue(':username', $username);
-                $q -> bindValue(':password', $password);
                 $result = $q -> fetch(PDO::FETCH_ASSOC);
 		if ($q -> execute()) {
 			//execution successfull: return DB data
