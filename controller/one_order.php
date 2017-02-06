@@ -187,7 +187,7 @@
     }
     
     // Order view
-    if(isset($_GET['id']) && isset($_GET['action']) && $_GET['action'] == 'view'){
+    if(isset($_GET['id']) && isset($_GET['action']) && ($_GET['action'] == 'view' || $_GET['action'] == 'edit')){
         $order = $OrderManager->select_by_id($_GET['id']);
         $order = $order[0];
         
