@@ -36,9 +36,11 @@ if($_SESSION['right'] == 1 && $_GET['action'] == 'edit'){
                     <input type="hidden" value="'.$order['id'].'" name="id"/>'
           . '</form></p>'
             . '</div>';
+
+    $output.=   '<div><a href="one_order.php?action=pdf&id='.$order['id'].'" target="_blank"><button class="btn"><i class="fa fa-download"></i>Télécharger commande en PDF</button></a></div><br>';
   
 //  Order
-    $output.=           '<table class="table table-hover">'
+    $output.=           '<div><table class="table table-hover">'
                             . '<thead>'
                                 . '<tr class="tableImportant">'
                                     . '<td>Produit</td><td>Quantité</td><td>En stock</td><td class="priceColumn">Prix en CHF</td>'
@@ -66,8 +68,9 @@ if($_SESSION['right'] == 1 && $_GET['action'] == 'edit'){
         $output.= '<tfoot>'
                     . '<tr class="tableImportant"><td colspan="3"><strong>TVA</strong></td><td class="priceColumn"><strong>'.(100*$tva).'%</strong></td></tr>'
                     . '<tr class="tableImportant"><td colspan="3"><strong>Total</strong></td><td class="priceColumn"><strong>'.$total.'</strong></td></tr>'
-                . '</tfoot>';
+                . '</tfoot></table></div>';
     }
 
 echo $output;
 
+?>
