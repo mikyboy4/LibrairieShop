@@ -78,6 +78,8 @@ class User{
         return $this->password;
     }
 
+    
+    
     public function setid($id) {
         $this->id = $id;
     }
@@ -99,11 +101,11 @@ class User{
     }
 
     public function setright($right) {
-        $this->right = $right;
+        $this->right = intval($right);
     }
 
     public function setdeleted($deleted) {
-        $this->deleted = $deleted;
+        $this->deleted = intval($deleted);
     }
 
     public function setpassword($password) {
@@ -115,7 +117,7 @@ class User{
     }
 
     function setnpa($npa) {
-        $this->npa = $npa;
+        $this->npa = intval($npa);
     }
 
     function setcity($city) {
