@@ -38,14 +38,14 @@ CREATE TABLE t_book (
   FOREIGN KEY (FK_genre) REFERENCES t_genre(id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `t_order` (
-  `id` int(11) NOT NULL,
-  `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'INSERT datetime',
-  `user` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `total_price` decimal(11,2) NOT NULL COMMENT 'en CHF',
-  `deleted` int(1) NOT NULL DEFAULT '0' COMMENT '0=visible / 1=invisible',
-  `bookqnt` varchar(512) NOT NULL
+CREATE TABLE t_order (
+  id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  order_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'INSERT datetime',
+  user int(11) NOT NULL,
+  status int(11) NOT NULL,
+  total_price decimal(11,2) NOT NULL COMMENT 'en CHF',
+  deleted int(1) NOT NULL DEFAULT '0' COMMENT '0=visible / 1=invisible',
+  bookqnt varchar(512) NOT NULL
 ) ENGINE=InnoDB;
 
 # Structure of the table t_comment
