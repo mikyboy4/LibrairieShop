@@ -14,19 +14,23 @@ class UserManager {
 	}
 
     //INSERT DB FUNCTION
-	public function insert(User $user) {
-            $q = $this -> _odbc -> prepare('INSERT INTO user(id, username, name, surname, email, right, deleted, password)
-                VALUES(:id, :username, :name, :surname, :email, :right, :deleted, :password)');
-            $q -> bindValue(':id', $user -> getid());
+	public function insert(User $user) {    
+            $q = $this -> _odbc -> prepare('INSERT INTO user (`username`, `name`, `surname`, `email`, `deleted`, `password`, `right`, `adress`, `npa`, `city`)
+            VALUES (:username, :name, :surname, :email, :deleted, :password, :right, :adress, :npa, :city)');
             $q -> bindValue(':username', $user -> getusername());
             $q -> bindValue(':name', $user -> getname());
             $q -> bindValue(':surname', $user -> getsurname());
             $q -> bindValue(':email', $user -> getemail());
-            $q -> bindValue(':password', $user -> getpassword());
             $q -> bindValue(':deleted', $user -> getdeleted());
-            if ($q -> execute()) {
+            $q -> bindValue(':password', $user -> getpassword());
+            $q -> bindValue(':right', $user -> getright());
+            $q -> bindValue(':adress', $user -> getadress());
+            $q -> bindValue(':npa', $user -> getnpa());
+            $q -> bindValue(':city', $user -> getcity());
+            
+            if($q -> execute()) {
                     //execution successfull: return last inserted id
-                    $return = $this -> _odbc -> lastInsertId();
+                    $return = TRUE;
             } else {
                     //execution failed: return FALSE
                     $return = FALSE;
@@ -35,12 +39,11 @@ class UserManager {
 	}
 
     //SELECT DB FUNCTION
-	public function select($username, $password) {
+	public function select($username) {
             try {
                 $output = array();
-		$q = $this -> _odbc -> prepare("SELECT * FROM user WHERE username = :username AND password = :password AND deleted = 0");
+		$q = $this -> _odbc -> prepare("SELECT * FROM user WHERE username = :username AND deleted = 0");
 		$q -> bindValue(':username', $username);
-                $q -> bindValue(':password', $password);
                 $result = $q -> fetch(PDO::FETCH_ASSOC);
 		if ($q -> execute()) {
 			//execution successfull: return DB data
@@ -72,6 +75,24 @@ class UserManager {
 			//execution failed: return FALSE
 			$return = FALSE;
 		return $return;
+    }
+    
+    //SELECT USERNAME WITH USERNAME - DB FUNCTION
+    public function check_uname($username) {
+        try{
+	$q = $this -> _odbc -> prepare("SELECT username FROM user WHERE username = :username AND deleted = 0");
+        $q -> bindValue(':username', $username);		
+        if ($q -> execute()) {
+//execution successfull: return DB data
+            $result = $q -> fetchAll();
+            $return = $result;
+        } else
+                //execution failed: return FALSE
+                $return = FALSE;
+        return $return;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
     
     public function select_by_id($id) {

@@ -59,7 +59,7 @@
             $priceAmount = $amount * $price;
             $prices[] = $priceAmount;
             
-            if($amount >= $value['logistic_qnt']){
+            if($amount > $value['logistic_qnt']){
                 $checkStock[$key] = 0;
             }else{
                 $checkStock[$key] = 1;

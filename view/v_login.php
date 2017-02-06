@@ -19,10 +19,10 @@ if (!defined('INCLUDE_CHECK')) {
                 <?php echo $captcha; ?>
                 <input name="captcha" type="text" class="form-control" id="exampleInputPassword1" placeholder="Captcha"/>
             </div>
-            <input type="submit" name="submit" value="submit" class="btn btn-default"/>
+            <input type="submit" name="submit" value="Valider" class="btn btn-default"/>
         </form>
         <div class="imgnew">
-            <a href="./sign-up">
+            <a href="./new_user.php">
                 <img src="./images/home/new.png" alt="new" title="New?" /> 
             </a>
         </div>

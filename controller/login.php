@@ -31,7 +31,13 @@
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_user.php');
     
     $error = 0;
-    $msg = '';
+    
+    if(isset($_GET['msg'])){
+        $msg = '<p class="alert alert-success">Merci pour votre incription. Connectez-vous!</p>';
+    }
+    else{
+        $msg = '';
+    }
     $__title = 'Login';
     
     $captchaimg = array(
@@ -53,10 +59,10 @@
     
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])){        
         if($_POST['captcha'] == $captchaimg[$_COOKIE['randnb']]){
-            $UserManager = new UserManager();
-            $userData = $UserManager -> select($_POST['username'], $_POST['password']);
+            $UserManager = new UserManager();           
+            $userData = $UserManager -> select($_POST['username']);
 
-            if(isset ($userData) && $userData != null){
+            if(isset ($userData['password']) && $userData['password'] == sha1('1;151#'.$_POST['password'])){
 
                 $User = new User($userData);
 
