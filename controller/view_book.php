@@ -74,7 +74,7 @@
                     $comment -> setcomment($_POST['comment']);
                     $comment -> setstatus(0);
                     $comment -> setFK_book($_GET['book']);
-                    $comment -> setcreation_date(null);
+                    $comment -> setcreation_date(date('Y-m-d H:i:s'));
                     $comment -> setdeleted(0);
                     //Record to the database
                     if ($insertedid = $commentManager -> insert($comment) != FALSE){
