@@ -1,7 +1,7 @@
 <?php 
-if (!defined('INCLUDE_CHECK')) {
-    http_response_code(404); die;
-}
+    if (!defined('INCLUDE_CHECK')) {
+        http_response_code(404); die;
+    }
 
     $output =  '<div id="cart" class="center col-xs-12 col-sm-12 col-md-offset-2 col-lg-offset-2 col-md-8 col-lg-8">
                     <div class="list-group"><div><h2>Validation de la commande</h2>';
