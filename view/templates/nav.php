@@ -32,6 +32,7 @@
 					if (isset($_SESSION['id'])){
 						echo '<li><a href="my_comments.php">Mes commentaires</a></li>';
                                                 echo '<li><a href="order.php">Mes commandes</a></li>';
+                                                echo '<li><a href="my_account.php">Mes informations</a></li>';
 					}
 
 					//Nav bar for admin
@@ -42,6 +43,7 @@
 						echo '<li><a href="new_book.php"><span class="admin-menu">Ajouter un livre</span></a></li>';
 						echo '<li><a href="comments_mgmt.php"><span class="admin-menu">Commentaires</span></a></li>';
                                                 echo '<li><a href="order.php?by=status&value=0"><span class="admin-menu">Commandes</span></a></li>';
+                                                echo '<li><a href="user_list.php"><span class="admin-menu">Utilisateurs</span></a></li>';
 						echo '</ul>';
 						echo '</li>';
 					}

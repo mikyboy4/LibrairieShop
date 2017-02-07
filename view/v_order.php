@@ -15,7 +15,7 @@ if (!defined('INCLUDE_CHECK')) {
                             . '<th data-type="html">Actions</th>'
                         . '</tr></thead><tbody>';
     foreach($orders as $key => $value){
-        $user = $UserManager->select_by_id($value['user']);
+        $user = $UserManager->select_by_id_deleted($value['user']);
         $output.=       '<tr>'
                             . '<td>'.$value['id'].'</td>'
                             . '<td>'.$user['username'].'</td>'

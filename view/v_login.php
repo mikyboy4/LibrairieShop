@@ -16,16 +16,10 @@ if (!defined('INCLUDE_CHECK')) {
                 <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe"/>
             </div>
             <div class="form-group">
-                <?php echo $captcha; ?>
-                <input name="captcha" type="text" class="form-control" id="exampleInputPassword1" placeholder="Captcha"/>
+                <input type="submit" name="submit" value="Valider" class="btn btn-primary"/>
+                <a class="btn btn-default" href="new_user.php">S'enregistrer</a>
             </div>
-            <input type="submit" name="submit" value="Valider" class="btn btn-default"/>
         </form>
-        <div class="imgnew">
-            <a href="./new_user.php">
-                <img src="./images/home/new.png" alt="new" title="New?" /> 
-            </a>
-        </div>
     </div>
 </div>
 <?php// require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); ?>
