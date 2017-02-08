@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Security for views and models
     define('INCLUDE_CHECK', true);
     
@@ -63,7 +64,7 @@
     $__title = 'Livres';
     
     //  Request for cart products
-    session_start();
+    //session_start();
     
     //  transforme $_SESSION['cart'] en tableau s'il existe
     if(isset($_SESSION['cart'])){

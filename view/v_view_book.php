@@ -26,7 +26,7 @@ else
 				<hr>
 				<b>Edition: </b> <span><?php echo htmlentities($bookinfos[9]); ?></span><br>
 				<b>Année d'édition: </b> <span><?php echo htmlentities($bookinfos[6]); ?></span><br>
-				<b>Genre: </b> <span><?php echo htmlentities($bookinfos[11]); ?></span><br>
+				<b>Genre: </b> <span><?php echo htmlentities($bookinfos[15]); ?></span><br>
 				<b>Quantité en stock: </b> <span><?php echo htmlentities($bookinfos[10]); ?></span><br>
 				<hr>
 				<h3>Commentaires</h3>

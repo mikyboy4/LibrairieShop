@@ -123,6 +123,20 @@ class UserManager {
 		return $return;
     }
     
+    //SELECT USERNAME WITH ID - DB FUNCTION
+    public function select_name($uid) {
+		$q = $this -> _odbc -> prepare("SELECT name, surname FROM user WHERE id = :uid AND deleted = 0");
+        $q -> bindValue(':uid', $uid);		
+		$result = $q -> fetch(PDO::FETCH_ASSOC);
+		if ($q -> execute()) {
+			//execution successfull: return DB data
+			$result = $q -> fetch();
+            $return = $result[0].' '.$result[1];
+		} else
+			//execution failed: return FALSE
+			$return = FALSE;
+		return $return;
+    }
     //SELECT USERNAME WITH USERNAME - DB FUNCTION
     public function check_uname($username) {
         try{

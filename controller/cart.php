@@ -19,7 +19,9 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
-//Security for views and models
+    session_start();
+
+    //Security for views and models
     define('INCLUDE_CHECK', true);
     
     // Recuperation de l'ID

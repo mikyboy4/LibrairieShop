@@ -1,9 +1,7 @@
 <?php
+    session_start();
     //Security for views and models
     define('INCLUDE_CHECK', true);
-
-	//Security check - Logged in 
-	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 
 	// Include required files
 	require_once $_SERVER['DOCUMENT_ROOT']."/model/m_book_manager.php";
@@ -41,7 +39,7 @@
             foreach ($comments as $comment) {
                 //Layout
 				//Get username with id
-				$comment[2] = $userManager -> select_uname($comment[2]);
+				$comment[2] = $userManager -> select_name($comment[2]);
 
 				//Dates format
 				$comment[3] = new DateTime($comment[3]); 
