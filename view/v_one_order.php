@@ -73,4 +73,4 @@ if($_SESSION['right'] == 1 && $_GET['action'] == 'edit'){
 
 echo $output;
 
-?>
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); ?>

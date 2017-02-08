@@ -22,4 +22,4 @@ if (!defined('INCLUDE_CHECK')) {
         </form>
     </div>
 </div>
-<?php// require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); ?>

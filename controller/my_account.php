@@ -22,7 +22,8 @@
 //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    session_start();
+    //Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
     
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_user.php');
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_user_manager.php');
@@ -40,7 +41,9 @@
             
             unset($userInfo['submit']);
             $userInfo['id'] = $id;
-            $userInfo['password'] = sha1('1;151#'.$userInfo['password']);
+            if ($userInfo['password'] != null){
+                $userInfo['password'] = sha1('1;151#'.$userInfo['password']);
+            }
             $userInfo['right'] = $User->getright();
             $userInfo['deleted'] = 0;
             $User = new User($userInfo);

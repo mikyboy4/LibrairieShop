@@ -49,6 +49,8 @@
     }
     $output.= '</tbody></table><a style="float:right;" class="btn btn-large btn-primary" href="new_order.php">Valider la commande</a></div></div>';
     echo $output;
-
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); 
+    
+    require_once ($_SERVER['DOCUMENT_ROOT'] . '/view/templates/footer.php'); 
 ?>
+
+

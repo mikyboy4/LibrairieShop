@@ -10,9 +10,9 @@ if (!defined('INCLUDE_CHECK')) {
         <thead>
           <tr>
             <th data-breakpoints="xs sm" data-type="html">Couverture</th>
-            <th>Title</th>
+            <th>Titre</th>
             <th data-breakpoints="all">Genre</th>
-            <th data-breakpoints="all">Overview</th>
+            <th data-breakpoints="all">Résumé</th>
             <th data-breakpoints="all">Année</th>
             <th data-breakpoints="all">Auteur</th>
             <th>Prix</th>

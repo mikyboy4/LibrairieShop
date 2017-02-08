@@ -19,13 +19,12 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
-//Security for views and models
+	//Security for views and models
     define('INCLUDE_CHECK', true);
-    
-    session_start();
-    if(!isset($_SESSION['id']) && $_SESSION['right'] != 1){
-        header('Location: books.php');
-    }
+	//Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
+	//Security check - Admin 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_admin.php";
     
 //  Models requirements
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/model/m_user.php');

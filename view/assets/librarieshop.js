@@ -14,6 +14,16 @@ $.validate({
 	form : '#new_comment'
 });
 
+$.validate({
+	lang: 'fr',
+	form : '#my_account'
+});
+
+$.validate({
+	lang: 'fr',
+	form : '#new_user'
+});
+
 $( document ).ready(function() {
 });
 

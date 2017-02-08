@@ -1,4 +1,8 @@
 <?php
+	//Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
+	//Security check - Admin 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_admin.php";
     //Security for views and models
     define('INCLUDE_CHECK', true);
 

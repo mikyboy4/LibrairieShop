@@ -42,13 +42,19 @@ class UserManager {
 	public function update(User $user) {    
             $q = $this -> _odbc -> prepare('UPDATE user SET `username` = :username, `name` = :name, `surname` = :surname, `email` = :email, `deleted` = :deleted, `password` = :password, `right` = :right, `adress` = :adress, `npa` = :npa, `city` = :city
             WHERE id = :id');
+            if ($user -> getpassword() == null){
+                $q = $this -> _odbc -> prepare('UPDATE user SET `username` = :username, `name` = :name, `surname` = :surname, `email` = :email, `deleted` = :deleted, `right` = :right, `adress` = :adress, `npa` = :npa, `city` = :city
+                WHERE id = :id');
+            }
             $q -> bindValue(':id', $user -> getid());
             $q -> bindValue(':username', $user -> getusername());
             $q -> bindValue(':name', $user -> getname());
             $q -> bindValue(':surname', $user -> getsurname());
             $q -> bindValue(':email', $user -> getemail());
             $q -> bindValue(':deleted', $user -> getdeleted());
-            $q -> bindValue(':password', $user -> getpassword());
+            if ($user -> getpassword() != null){
+                $q -> bindValue(':password', $user -> getpassword());
+            }
             $q -> bindValue(':right', $user -> getright());
             $q -> bindValue(':adress', $user -> getadress());
             $q -> bindValue(':npa', $user -> getnpa());

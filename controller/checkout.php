@@ -19,10 +19,12 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
+//Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    //  variables utiles
+//  variables utiles
     $tva = 0.08;
     $date = new DateTime();
     

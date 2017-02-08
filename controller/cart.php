@@ -22,10 +22,6 @@
 //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    
-    
-    session_start();
-    
     // Recuperation de l'ID
     if(isset($_GET['action']) && isset($_GET['id']) && is_numeric($_GET['id']) && is_numeric($_GET['action'])){
         $id = $_GET['id'];

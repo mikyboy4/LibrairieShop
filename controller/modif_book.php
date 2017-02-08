@@ -1,24 +1,4 @@
 <?php
-	////////////////////////////////// ---------- Entête du programme ---------- //////////////////////////////////
-	#################################################################
-	#
-	#	Programme:		testLibraryShop.php	!!! Essai de formulaire !!!
-	#	Auteur:		Raphaël Dufour
-	#
-	#################################################################
-	#
-	# 	Date :		Decembre 2016
-	#	Version :		1.0
-	#	Révisions :		1.1 - David Miranda - TG-34
-	#
-	#################################################################
-	#
-	#	Get administration adding book informations
-	#
-	#################################################################
-	
-	//i//////////////////////////////// ----- Déclarations ----- //////////////////////////////////
-
 	//Security check - Logged in 
 	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
 	//Security check - Admin 

@@ -19,10 +19,11 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
-//Security for views and models
+	//Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
+    //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    session_start();
     if(!isset($_SESSION['id'])){
         header('Location: books.php');
     }

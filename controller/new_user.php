@@ -19,7 +19,7 @@
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
 
-//Security for views and models
+    //Security for views and models
     define('INCLUDE_CHECK', true);
     
     $error = 0;

@@ -4,6 +4,7 @@
 
 	//Check if session is opened
 	if (!isset($_SESSION['id'])){
-		http_response_code(401);
+		header('Location: ../error/401.html');
+		die;
 	}
 ?>

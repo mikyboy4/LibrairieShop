@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS t_genre;
 CREATE TABLE t_genre (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
-  creation_date DATETIME NOT NULL DEFAULT NOW() COMMENT 'INSERT datetime',
+  creation_date DATETIME COMMENT 'INSERT datetime',
   deleted INT(1) NOT NULL DEFAULT 0 COMMENT '0=visible / 1=invisible'
 ) ENGINE=InnoDB;
 
@@ -40,7 +40,7 @@ CREATE TABLE t_book (
 
 CREATE TABLE t_order (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  order_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'INSERT datetime',
+  order_date datetime COMMENT 'INSERT datetime',
   user int(11) NOT NULL,
   status int(11) NOT NULL,
   total_price decimal(11,2) NOT NULL COMMENT 'en CHF',

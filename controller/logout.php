@@ -21,10 +21,10 @@
 
 //Security for views and models
     define('INCLUDE_CHECK', true);
-    
-    session_start();
+	session_start();
+    session_destroy();
 //  Unaet des variables de session de l'utilisateur
-    unset($_SESSION['id'], $_SESSION['username'], $_SESSION['name'], $_SESSION['surname'], $_SESSION['email'], $_SESSION['right']);
+    unset($_SESSION);
 
     header('Location: books.php');
  

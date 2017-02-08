@@ -15,9 +15,10 @@ class OrderManager {
 
     //INSERT DB FUNCTION
 	public function insert(Order $order) {
-            $q = $this -> _db -> prepare('INSERT INTO t_order (user, status, total_price, bookqnt, deleted)
-                VALUES(:user, :status, :total_price, :bookqnt, :deleted)');
+            $q = $this -> _db -> prepare('INSERT INTO t_order (user, status, total_price, bookqnt, deleted, order_date)
+                VALUES(:user, :status, :total_price, :bookqnt, :deleted, :order_date)');
             $q -> bindValue(':user', $order ->getuser());
+			$q -> bindValue(':order_date', $order ->getorder_date());
             $q -> bindValue(':status', $order -> getstatus());
             $q -> bindValue(':total_price', $order -> gettotal_price());
             $q -> bindValue(':bookqnt', $order -> getbookqnt());

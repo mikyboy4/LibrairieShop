@@ -18,11 +18,11 @@
 	#################################################################
 	
 	////////////////////////////////// ----- Déclarations ----- //////////////////////////////////
-
-//Security for views and models
+	//Security check - Logged in 
+	require_once $_SERVER['DOCUMENT_ROOT']."/security_checks/check_session.php";
+    //Security for views and models
     define('INCLUDE_CHECK', true);
     
-    session_start();
     if(!isset($_SESSION['id']) || !isset($_GET['order'])){
         header('Location: books.php');
     }
@@ -68,6 +68,8 @@
         $orderArray['status'] = 0;
         $orderArray['total_price'] = $total;
         $orderArray['deleted'] = 0;
+        $orderArray['order_date'] = null;
+
 
         $Order = new Order($orderArray);
 
