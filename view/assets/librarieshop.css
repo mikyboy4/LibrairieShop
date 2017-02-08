@@ -33,3 +33,45 @@
 .priceColumn{
         text-align: right;
 }
+
+/*.konami{
+    vertical-align: middle;
+    position:fixed;
+    top:40%;
+    height :400px; 
+    width:100%;
+    text-align:center;
+    z-index:10000000000;
+    font-size:100px;
+    color:white;
+    background-color: lightblue;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: 10;
+    font-size:100px;
+}*/
+
+/* Standard syntax */
+/*@keyframes example {
+    45%   {background-color: blue;}
+    75%  {background-color: green;}
+    25%  {background-color: lightgreen;}
+    15%   {background-color: lightred;}
+    5%  {background-color: red;}
+    65%  {background-color: lightyellow;}
+    35%   {background-color: yellow;}
+    55%  {background-color: green;}
+    95%  {background-color: lightgreen;}
+    85% {background-color: lightblue;}
+    0%   {background-color: lightblue;}
+    10%   {background-color: blue;}
+    20%  {background-color: green;}
+    30%  {background-color: lightgreen;}
+    40%   {background-color: lightred;}
+    50%  {background-color: red;}
+    60%  {background-color: lightyellow;}
+    70%   {background-color: yellow;}
+    80%  {background-color: green;}
+    90%  {background-color: lightgreen;}
+    100% {background-color: lightblue;}
+}*/

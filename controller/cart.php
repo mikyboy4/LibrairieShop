@@ -37,6 +37,8 @@
  *  3 => Diminuer la quantité
  */
     
+    
+    
 //  Ajouter au panier
     if($action == 0){
         $updated = 0;
@@ -100,8 +102,11 @@
                     array_splice($cart, $key, 1);
                 }
             }
+        }//  Enlever du panier
+    }elseif($action == 4){
+        if(isset($_SESSION['cart'])){
+            unset($_SESSION['cart']);
         }
-        
     }else{
         echo '<h1>Erreur 404</h1>';
     }
@@ -166,13 +171,13 @@
         }
         
 //  Affiche le prix total
-        $output.= '      <span class="list-group-item">
-                    <strong>Total : CHF '.number_format(array_sum($total), 2).'</strong>
-                    </span>
-                    <span class="list-group-item">
-                        <a class="btn btn-primary"><i class="fa fa-trash-o"></i></a>
-                        <a href="checkout.php" class="btn btn-primary">Payer</a>
-                    </span>';
+$output.= '      <span id="konami" class="list-group-item">
+            <strong id="price">Total : CHF '.number_format(array_sum($total), 2).'</strong>
+            </span>
+            <span class="list-group-item">
+                <button onclick="trash()" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+                <a id="payer" href="checkout.php" class="btn btn-primary">Payer</a>
+            </span>';
 
 //  Affiche panier vide
     }else{
@@ -183,8 +188,8 @@
                     <strong>Total : CHF 00.00</strong>
                     </span>
                     <!--span class="list-group-item">
-                        <a class="btn btn-primary"><i class="fa fa-trash-o"></i></a>
-                        <a href="checkout.php" class="btn btn-primary">Payer</a>
+                        <button onclick="trash()" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+                        <a id="payer" href="checkout.php" class="btn btn-primary">Payer</a>
                     </span-->';
     }
     $output.= '</div>';
